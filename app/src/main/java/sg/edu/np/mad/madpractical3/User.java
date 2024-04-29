@@ -16,10 +16,5 @@ public class User {
         this.followed = followed;
     }
 
-    // Method to generate a random ID
-    public static int generateRandomId() {
-        // Generate a random integer between 1 and 10000
-        Random random = new Random();
-        return random.nextInt(10000) + 1;
-    }
+
 }
