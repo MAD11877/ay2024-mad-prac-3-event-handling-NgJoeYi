@@ -8,14 +8,16 @@ public class User {
     public int id;
     public boolean followed;
 
-    public User(String name, String description, boolean followed) {
+    // Constructor with id parameter
+    public User(String name, String description, int id, boolean followed) {
         this.name = name;
         this.description = description;
-        this.id = generateRandomId();
+        this.id = id;
         this.followed = followed;
     }
 
-    private int generateRandomId() {
+    // Method to generate a random ID
+    public static int generateRandomId() {
         // Generate a random integer between 1 and 10000
         Random random = new Random();
         return random.nextInt(10000) + 1;
