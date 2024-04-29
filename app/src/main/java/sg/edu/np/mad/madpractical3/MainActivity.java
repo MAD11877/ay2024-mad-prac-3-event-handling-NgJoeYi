@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     btnFollow.setText("Follow");
                     Toast.makeText(getApplicationContext(),"Unfollowed", Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
     }
