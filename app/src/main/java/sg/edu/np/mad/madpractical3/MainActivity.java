@@ -1,15 +1,17 @@
 package sg.edu.np.mad.madpractical3;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.view.View;
+import android.widget.Toast;
+
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-import android.widget.Toast;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Initialize a new User object
-        User user = new User( "MAD", "MAD Developer", User.generateRandomId(), false);
+        User user = new User( "MAD", "MAD Developer", 1, false);
 
         // Get the TextViews and Button from the layout
         TextView tvName = findViewById(R.id.tvName);
@@ -33,25 +35,27 @@ public class MainActivity extends AppCompatActivity {
         Button btnFollow = findViewById(R.id.btnFollow);
 
         // Set the TextViews with the User's name, description and default button message
-        tvName.setText(user.name + " " + user.id);
+        tvName.setText(user.name);
         tvDescription.setText(user.description);
         btnFollow.setText("Follow");
 
         btnFollow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-
-                // Toggle the followed status
-                user.followed = !user.followed;
-
-                if (user.followed) {
+                if (user.followed){
                     btnFollow.setText("Unfollow");
+                    user.followed = false;
                     Toast.makeText(getApplicationContext(), "Followed", Toast.LENGTH_SHORT).show();
                 } else {
                     btnFollow.setText("Follow");
-                    Toast.makeText(getApplicationContext(),"Unfollowed", Toast.LENGTH_SHORT).show();
+                    user.followed = true;
+                    Toast.makeText(getApplicationContext(), "Unfollowed", Toast.LENGTH_SHORT).show();
                 }
-
             }
         });
+
+        Integer randomNumber = getIntent().getIntExtra("randomNumber", 0);
+        String name = user.name + " " + randomNumber;
+
+        tvName.setText(name);
     }
 }
