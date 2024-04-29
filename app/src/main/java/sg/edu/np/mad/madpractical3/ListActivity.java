@@ -33,7 +33,7 @@ public class ListActivity extends AppCompatActivity {
         builder.setPositiveButton("View", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
                 // Create an Intent to open the activity that displays activity_main.xml
-                Intent intent = new Intent(ListActivity.this, activity_main.class);
+                Intent intent = new Intent(ListActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
