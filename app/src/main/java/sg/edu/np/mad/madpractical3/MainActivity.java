@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         // Initialize a new User object
-        User user = new User( "MAD", "MAD Developer", false);
+        User user = new User( "MAD", "MAD Developer", 1, false);
 
         // Get the TextViews and Button from the layout
         TextView tvName = findViewById(R.id.tvName);
